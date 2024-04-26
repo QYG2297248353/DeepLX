@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - release
+      - test
   release:
     types: [ created ]
 
@@ -12,6 +13,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Print GitHub context
+        run: |
+          echo "repository: ${{ github.repository }}"
+          echo "repository_name: ${{ github.repository_name }}"
+          echo "actor: ${{ github.actor }}"
+          echo "ref_name: ${{ github.ref_name }}"
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
