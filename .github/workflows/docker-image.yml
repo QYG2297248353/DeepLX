@@ -16,7 +16,6 @@ jobs:
       - name: Print GitHub context
         run: |
           echo "repository: ${{ github.repository }}"
-          echo "repository_name: ${{ github.repository_name }}"
           echo "actor: ${{ github.actor }}"
           echo "ref_name: ${{ github.ref_name }}"
 
@@ -47,7 +46,7 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ DOCKERHUB_REPOSITORY_NAME }}:${{ github.ref_name }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ DOCKERHUB_REPOSITORY_NAME }}:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY_NAME }}:${{ github.ref_name }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY_NAME }}:latest
             ghcr.io/${{ github.repository }}:${{ github.ref_name }}
             ghcr.io/${{ github.repository }}:latest
