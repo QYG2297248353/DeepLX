@@ -47,7 +47,7 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.repository_name }}:${{ github.ref_name }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.repository_name }}:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ GITHUB_REPOSITORY_NAME }}:${{ github.ref_name }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ GITHUB_REPOSITORY_NAME }}:latest
             ghcr.io/${{ github.repository }}:${{ github.ref_name }}
             ghcr.io/${{ github.repository }}:latest
